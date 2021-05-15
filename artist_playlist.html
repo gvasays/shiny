@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% block head %}
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      {% block styles %}
+        {{ bootstrap.load_css() }}
+      {% endblock %}
+      <title>Artist Results</title>
+    {% endblock %}
+  </head>
+<body>
+  {% block content %}
+    <div class="container mb-4">  
+      <div class="card mt-4">
+        <div class="card-body">
+          <h2 class="card-title">Artist (so far)</h2>
+          <ul class="list-group">
+            {% for item in playlist %}
+              <li class="list-group-item">{{ item.artist }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="card-footer">
+          <a href="{{ url_for('index') }}" class="card-link">GO BACK PLZZ</a>
+        </div>
+      </div>
+    </div>
+  {% endblock %}
+</body>
+</html>
